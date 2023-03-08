@@ -1,0 +1,125 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "swagger template project",
+    "version": "0.0.0",
+    "title": "API Explorer",
+    "contact": {
+      "name": "Hacker Xu",
+      "email": "Hacker_Xu@wistronits.com"
+    },
+    "license": {
+      "name": "Apache 2.0"
+    }
+  },
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/history/handle": {
+      "get": {
+        "tags": [
+          "handle-history"
+        ],
+        "summary": "处理xxx fail历史数据",
+        "description": "处理xxx fail历史数据",
+        "operationId": "historyHandle",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "开始时间(e.g: 2022-01-01 00:00:00)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "结束时间(e.g: 2022-02-01 00:00:00)",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/error/history/handle": {
+      "get": {
+        "tags": [
+          "handle-error-history"
+        ],
+        "summary": "处理xxx fail错误历史数据",
+        "description": "处理xxx fail错误历史数据",
+        "operationId": "errorHistoryHandle",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "开始时间(e.g: 2022-01-01 00:00:00)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "结束时间(e.g: 2022-02-01 00:00:00)",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {},
+  "definitions": {
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
